@@ -12,6 +12,7 @@ public class Damageable : MonoBehaviour
     private int health = 1;
 
     UnityEvent DamageTaken;
+
     UnityEvent Died;
 
     private void Start()

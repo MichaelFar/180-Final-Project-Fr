@@ -8,6 +8,8 @@ public class BaseEnemy : MonoBehaviour
 
     public GameObject target;
 
+    private bool reachedPlayer = false;
+
     public float speed = 10.0f;
 
     void Start()
@@ -18,10 +20,20 @@ public class BaseEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var step = speed * Time.deltaTime; // calculate distance to move
+        if (!reachedPlayer)
+        {
+            var step = speed * Time.deltaTime; // calculate distance to move
 
-        var destination = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
+            var destination = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
 
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
+            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<EnemyPerimeter>())
+        {
+            reachedPlayer = true;
+        }
     }
 }

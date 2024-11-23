@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveSingleton : MonoBehaviour
+public static class WaveSingleton
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static GameObject WaveSpawner;
 
-    // Update is called once per frame
-    void Update()
+    public static Camera Camera;
+    public static void printhello()
     {
-        
+        MonoBehaviour.print("Hello");
     }
 }
