@@ -44,12 +44,10 @@ public class EnemySpawner : MonoBehaviour
         direction.Normalize();
 
         var cameraExtentWorldpoint = WaveSingleton.Camera.ScreenToWorldPoint(new Vector3(WaveSingleton.Camera.scaledPixelWidth, WaveSingleton.Camera.scaledPixelHeight, SpawnLocation.transform.position.z));
-        
-        
         //- target.transform.position;
 
-        direction.x = direction.x * cameraExtentWorldpoint.magnitude;
-        direction.z = direction.z * cameraExtentWorldpoint.magnitude;
+        direction.x *= cameraExtentWorldpoint.magnitude;
+        direction.z *= cameraExtentWorldpoint.magnitude;
 
         SpawnLocation.transform.position = new Vector3(direction.x, SpawnLocation.transform.position.normalized.y, direction.z);
         SpawnEnemy();
