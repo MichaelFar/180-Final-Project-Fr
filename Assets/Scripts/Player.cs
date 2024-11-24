@@ -6,14 +6,11 @@ public class Player : MonoBehaviour
 {
     public float speed;
     private Vector3 startPos;
-    private PlayerShoot playerShoot;
     private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-        playerShoot = GetComponent<PlayerShoot>();
         rb = GetComponent<Rigidbody>();
-        startPos = transform.position;
     }
 
     // Update is called once per frame
@@ -27,26 +24,24 @@ public class Player : MonoBehaviour
     }
     private void PlayerMove()
     {
+        
         if (Input.GetKey(KeyCode.A))
         {
-
             rb.MovePosition(transform.position + Vector3.left * speed * Time.deltaTime);
-            if (playerShoot != null)
-            {
-                playerShoot.movingLeft = true;
-            }
         }
         else if (Input.GetKey(KeyCode.D))
-
         {
-
             rb.MovePosition(transform.position + Vector3.right * speed * Time.deltaTime);
-            if (playerShoot != null)
-            {
-                playerShoot.movingLeft = false;
-            }
         }
 
         
+        if (Input.GetKey(KeyCode.W))
+        {
+            rb.MovePosition(transform.position + Vector3.forward * speed * Time.deltaTime); 
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            rb.MovePosition(transform.position + Vector3.back * speed * Time.deltaTime);
+        }
     }
 }
