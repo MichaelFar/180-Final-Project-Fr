@@ -27,6 +27,8 @@ public class BaseEnemy : MonoBehaviour
             var destination = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
 
             transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
+
+            transform.LookAt(destination);
         }
     }
     private void OnTriggerEnter(Collider other)
