@@ -15,6 +15,8 @@ public class Damageable : MonoBehaviour
 
     UnityEvent Died;
 
+    public GameObject objectToDestroy; 
+
     private void Start()
     {
         health = MaxHealth;
@@ -29,6 +31,12 @@ public class Damageable : MonoBehaviour
         if(health == 0)
         {
             //Died.Invoke();
+            WaveSingleton.enemyCount -= 1;
+            if (gameObject.GetComponent<BaseEnemy>())
+            {
+                WaveSingleton.enemyCount -= 1;
+                Destroy(objectToDestroy);
+            }
         }
 
     }

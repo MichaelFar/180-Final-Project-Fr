@@ -10,8 +10,16 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     public GameObject spawnPoint;
+
+    
     private void OnTriggerEnter(Collider other)
     {
-        other.transform.position = spawnPoint.transform.position;
+        var isPlayer = other.GetComponent<Player>();
+        var isEnemy = other.GetComponent<BaseEnemy>();
+        if (isPlayer || isEnemy)
+        {
+            other.transform.position = spawnPoint.transform.position;
+        }
+       
     }
 }

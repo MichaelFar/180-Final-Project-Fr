@@ -14,12 +14,15 @@ public class EnemySpawner : MonoBehaviour
 
     private Camera GameCamera;
 
-    public float WaveTime = 10.0f;
+    private float WaveTime = 1.0f;
+
+    
     void Start()
     {
         WaveSingleton.WaveSpawner = gameObject;
         GameCamera = WaveSingleton.Camera;
-        StartSpawning();
+        WaveTime = (float)WaveSingleton.enemyAmountThisWave;
+        //StartSpawning();
     }
 
     public void StartSpawning()
@@ -30,6 +33,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void StopSpawning()
     {
+        WaveSingleton.isInDanger = false;
         CancelInvoke();
     }
 
