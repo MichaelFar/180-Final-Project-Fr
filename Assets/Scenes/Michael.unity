@@ -588,6 +588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 1
+  objectToDestroy: {fileID: 0}
 --- !u!135 &1682875453
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -899,6 +900,10 @@ PrefabInstance:
     - target: {fileID: 565805023920678147, guid: 2eca4729e5fc98c46a4b9d9e6623bef4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474406852619102219, guid: 2eca4729e5fc98c46a4b9d9e6623bef4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.52
       objectReference: {fileID: 0}
     - target: {fileID: 8535727983488751824, guid: 2eca4729e5fc98c46a4b9d9e6623bef4, type: 3}
       propertyPath: m_Enabled
