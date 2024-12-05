@@ -49,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
 
         var largerAspect = WaveSingleton.Camera.pixelWidth > WaveSingleton.Camera.pixelHeight ? WaveSingleton.Camera.pixelWidth : WaveSingleton.Camera.pixelHeight;
 
-        var cameraExtentWorldpoint = WaveSingleton.Camera.ScreenToWorldPoint(new Vector3(largerAspect, 0, 22.4f));
+        var cameraExtentWorldpoint = WaveSingleton.Camera.ScreenToWorldPoint(new Vector3(largerAspect, 0, 19.52f));
         //- target.transform.position;
 
         print("Magnitude of the extent world point is " + cameraExtentWorldpoint.magnitude);

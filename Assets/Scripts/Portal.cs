@@ -14,9 +14,9 @@ public class Portal : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        var isPlayer = other.GetComponent<Player>();
+        //var isPlayer = other.GetComponent<Player>();
         var isEnemy = other.GetComponent<BaseEnemy>();
-        if (isPlayer || isEnemy)
+        if (isEnemy)
         {
             other.transform.position = spawnPoint.transform.position;
         }
