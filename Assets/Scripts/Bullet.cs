@@ -5,15 +5,17 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-
-    public bool goingLeft;
     public float speed;
 
+    public Vector3 direction;
 
+    public GameObject owner;
     // Start is called before the first frame update
     void Start()
     {
-
+        Invoke(nameof(deleteSelf), 10.0f);
+        gameObject.transform.LookAt(direction);
+        gameObject.GetComponent<Damager>().owner = owner;
     }
 
     // Update is called once per frame
@@ -26,14 +28,10 @@ public class Bullet : MonoBehaviour
 
     private void BulletMove()
     {
-        if (goingLeft)
-        {
-            transform.position += Vector3.left * speed * Time.deltaTime;
-        }
-        else
-        {
-
-            transform.position += Vector3.right * speed * Time.deltaTime;
-        }
+        transform.position += transform.forward * Time.deltaTime * speed;
+    }
+    private void deleteSelf()
+    {
+        Destroy(gameObject);
     }
 }   

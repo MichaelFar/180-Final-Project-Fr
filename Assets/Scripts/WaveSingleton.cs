@@ -27,9 +27,12 @@ public static class WaveSingleton
         get { return _enemyCount; }
         set
         {
-            if (value <= 0)
+            _enemyCount = value;
+            if (value < 0)
             {
-                currentWave += 1;
+                MonoBehaviour.print("Ended wave");
+                
+                isInDanger = false;
                 increaseDifficulty();
             }
             
@@ -50,7 +53,9 @@ public static class WaveSingleton
 
     private static void increaseDifficulty()
     {
-        enemyCount += 2;
+        currentWave += 1;
+        enemyAmountThisWave += 2;
+        //enemyCount = enemyAmountThisWave;
         enemyDamageModifier += 1;
         enemyHealthModifier += 1;
     }

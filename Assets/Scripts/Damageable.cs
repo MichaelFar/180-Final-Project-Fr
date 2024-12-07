@@ -19,6 +19,7 @@ public class Damageable : MonoBehaviour
 
     private void Start()
     {
+        MaxHealth = WaveSingleton.enemyHealthModifier + MaxHealth;
         health = MaxHealth;
     }
     public void TakeDamage(int damageToTake)
@@ -31,10 +32,12 @@ public class Damageable : MonoBehaviour
         if(health == 0)
         {
             //Died.Invoke();
-            WaveSingleton.enemyCount -= 1;
+            
             if (gameObject.GetComponent<BaseEnemy>())
             {
+                print("Destroying enemy");
                 WaveSingleton.enemyCount -= 1;
+                print("Destroying enemy" + " enemy count is now " + WaveSingleton.enemyCount);
                 Destroy(objectToDestroy);
             }
         }

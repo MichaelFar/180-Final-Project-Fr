@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void StopSpawning()
     {
-        WaveSingleton.isInDanger = false;
+        //WaveSingleton.isInDanger = false;
         CancelInvoke();
     }
 
@@ -49,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
 
         var largerAspect = WaveSingleton.Camera.pixelWidth > WaveSingleton.Camera.pixelHeight ? WaveSingleton.Camera.pixelWidth : WaveSingleton.Camera.pixelHeight;
 
-        var cameraExtentWorldpoint = WaveSingleton.Camera.ScreenToWorldPoint(new Vector3(largerAspect, 0, 19.52f));
+        var cameraExtentWorldpoint = WaveSingleton.Camera.ScreenToWorldPoint(new Vector3(largerAspect, 0, WaveSingleton.Camera.transform.position.y));
         //- target.transform.position;
 
         print("Magnitude of the extent world point is " + cameraExtentWorldpoint.magnitude);

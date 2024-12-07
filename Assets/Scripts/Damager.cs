@@ -8,9 +8,17 @@ public class Damager : MonoBehaviour
     // Start is called before the first frame update
     public int damage = 1;
 
+    public GameObject owner;
+
+    private IEnumerator coroutine;
+
     UnityEvent DealtDamage;
     void Start()
     {
+        if(gameObject.GetComponent<BaseEnemy>())
+        {
+            damage = WaveSingleton.enemyDamageModifier + damage;
+        }
         
     }
 
@@ -20,14 +28,24 @@ public class Damager : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    
+    private void OnTriggerEnter(Collider other)
     {
-        var playerDamageable = collision.gameObject.GetComponent<Damageable>();
+        coroutine = damageOnTrigger(other);
+        StartCoroutine(coroutine);
+    }
+    IEnumerator damageOnTrigger(Collider other)
+    {
+        yield return new WaitForEndOfFrame();
+        var damageable = other.gameObject.GetComponent<Damageable>();
 
-        if(playerDamageable)
+        var sameEnemyTeam = other.gameObject.GetComponent<BaseEnemy>() && owner.GetComponent<BaseEnemy>();
+
+        if (damageable && other.gameObject && !sameEnemyTeam)
         {
-            playerDamageable.TakeDamage(damage);
-            //DealtDamage.Invoke();
+            print("Hit damageable");
+            damageable.TakeDamage(damage);
+            Destroy(gameObject);
         }
     }
 }
