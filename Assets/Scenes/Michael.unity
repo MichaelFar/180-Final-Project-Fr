@@ -848,6 +848,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6231648583039863221, guid: 2eca4729e5fc98c46a4b9d9e6623bef4, type: 3}
+      propertyPath: m_Height
+      value: 4.219018
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231648583039863221, guid: 2eca4729e5fc98c46a4b9d9e6623bef4, type: 3}
+      propertyPath: m_Center.y
+      value: 1.109509
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231648583039863221, guid: 2eca4729e5fc98c46a4b9d9e6623bef4, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 64
       objectReference: {fileID: 0}
@@ -879,6 +887,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 164365104788012125, guid: 2eca4729e5fc98c46a4b9d9e6623bef4, type: 3}
       insertIndex: 5
       addedObject: {fileID: 3499972027452866253}
+    - targetCorrespondingSourceObject: {fileID: 164365104788012125, guid: 2eca4729e5fc98c46a4b9d9e6623bef4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3499972027452866259}
     - targetCorrespondingSourceObject: {fileID: 4275225778645200018, guid: 2eca4729e5fc98c46a4b9d9e6623bef4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1835349334}
@@ -909,6 +920,20 @@ MonoBehaviour:
   mouseDirection: {x: 0, y: 0, z: 0}
   projectile: {fileID: 6303969421768429117, guid: 6fca8e5bc36ad71438283f52b6afaa95, type: 3}
   fireRate: 0.3
+--- !u!114 &3499972027452866259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3499972027452866246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193c241d8cabcce4f86791703fd5523e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 5
+  objectToDestroy: {fileID: 3499972027452866246}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

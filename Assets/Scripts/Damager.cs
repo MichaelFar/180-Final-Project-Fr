@@ -37,15 +37,22 @@ public class Damager : MonoBehaviour
     IEnumerator damageOnTrigger(Collider other)
     {
         yield return new WaitForEndOfFrame();
+
         var damageable = other.gameObject.GetComponent<Damageable>();
 
         var sameEnemyTeam = other.gameObject.GetComponent<BaseEnemy>() && owner.GetComponent<BaseEnemy>();
 
-        if (damageable && other.gameObject && !sameEnemyTeam)
+        print("Owner is " + owner + " and gameObject is ");
+
+        if (damageable)
         {
-            print("Hit damageable");
-            damageable.TakeDamage(damage);
-            Destroy(gameObject);
+            if (owner != other.gameObject && !sameEnemyTeam)
+            {
+                Destroy(gameObject);
+                damageable.TakeDamage(damage);
+            }
         }
+        
+        
     }
 }

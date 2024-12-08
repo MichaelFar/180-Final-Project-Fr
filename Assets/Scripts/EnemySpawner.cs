@@ -27,6 +27,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void StartSpawning()
     {
+        WaveSingleton.doneSpawning = false;
         InvokeRepeating("SetRandomRotation", 0.0f, 1.0f);
         StartCoroutine("WaveTimerCoroutine");
     }
@@ -74,7 +75,7 @@ public class EnemySpawner : MonoBehaviour
         // Start function WaitAndPrint as a coroutine
         yield return new WaitForSeconds(WaveTime);
         StopSpawning();
-
+        WaveSingleton.doneSpawning = true;
     }
 
 

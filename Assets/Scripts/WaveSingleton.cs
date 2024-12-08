@@ -12,6 +12,8 @@ public static class WaveSingleton
 
     public static bool isInDanger = false;
 
+    public static bool doneSpawning = true;
+
     public static int currentWave = 1;
 
     public static int enemyDamageModifier = 0;
@@ -32,7 +34,7 @@ public static class WaveSingleton
             {
                 MonoBehaviour.print("Ended wave");
                 
-                isInDanger = false;
+                
                 increaseDifficulty();
             }
             
@@ -51,7 +53,7 @@ public static class WaveSingleton
         enemyCount = enemyAmountThisWave;
     }
 
-    private static void increaseDifficulty()
+    public static void increaseDifficulty()
     {
         currentWave += 1;
         enemyAmountThisWave += 2;

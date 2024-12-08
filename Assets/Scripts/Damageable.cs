@@ -35,10 +35,11 @@ public class Damageable : MonoBehaviour
             
             if (gameObject.GetComponent<BaseEnemy>())
             {
-                print("Destroying enemy");
-                WaveSingleton.enemyCount -= 1;
-                print("Destroying enemy" + " enemy count is now " + WaveSingleton.enemyCount);
                 Destroy(objectToDestroy);
+            }
+            else if(gameObject.GetComponent<Player>())
+            {
+                print("Player has died, put gameover code here");
             }
         }
 

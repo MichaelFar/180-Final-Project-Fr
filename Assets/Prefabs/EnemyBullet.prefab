@@ -119,8 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e7dadd05b9d5c49bc51f3f1850859d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 45
+  speed: 15
   direction: {x: 0, y: 0, z: 0}
+  owner: {fileID: 0}
 --- !u!114 &2917928452723086848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,3 +135,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  owner: {fileID: 0}

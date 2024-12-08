@@ -62,4 +62,15 @@ public class BaseEnemy : MonoBehaviour
         projectileInstance.GetComponent<Bullet>().owner = gameObject;
         projectileInstance.GetComponent<Bullet>().direction = new Vector3(target.transform.position.x, 1.0f, target.transform.position.z);
     }
+
+    private void OnDestroy()
+    {
+        BaseEnemy[] tests = FindObjectsOfType(typeof(BaseEnemy)) as BaseEnemy[];
+        if(tests.Length == 0 && WaveSingleton.doneSpawning)
+        {
+            WaveSingleton.isInDanger = false;
+            WaveSingleton.increaseDifficulty();
+        }
+
+    }
 }
