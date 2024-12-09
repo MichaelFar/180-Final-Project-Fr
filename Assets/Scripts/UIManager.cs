@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-      //scoreText.text = "Score: " + Player.Score;
-      //livesText.text = "Lives: " + Player.lives;
+        //scoreText.text = "Score: " + Player.Score;
+       // livesText.text = "Lives: " + WaveSingleton.playerDamageable.heal
     }
 }
