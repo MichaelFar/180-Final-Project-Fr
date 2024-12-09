@@ -10,6 +10,8 @@ public static class WaveSingleton
 
     public static Camera Camera;
 
+    public static Damageable playerDamageable;
+
     public static bool isInDanger = false;
 
     public static bool doneSpawning = true;

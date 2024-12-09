@@ -21,6 +21,10 @@ public class Damageable : MonoBehaviour
     {
         MaxHealth = WaveSingleton.enemyHealthModifier + MaxHealth;
         health = MaxHealth;
+        if(gameObject.GetComponent<Player>())
+        {
+            WaveSingleton.playerDamageable = this;
+        }
     }
     public void TakeDamage(int damageToTake)
     {
