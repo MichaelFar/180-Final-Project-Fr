@@ -11,9 +11,9 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    public TMP_Text trapText;
 
-    
-
+    public TMP_Text waveText;
 
     public TMP_Text scoreText;
 
@@ -32,6 +32,8 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         //scoreText.text = "Score: " + Player.Score;
+        waveText.text = "wave: " + WaveSingleton.currentWave;
         livesText.text = "Lives: " + WaveSingleton.playerDamageable.health;
+       // trapText.text = "Trap: " + WaveSingleton.playerDamageable.health;
     }
 }
