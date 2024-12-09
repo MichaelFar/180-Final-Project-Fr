@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Damageable : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class Damageable : MonoBehaviour
             else if(gameObject.GetComponent<Player>())
             {
                 print("Player has died, put gameover code here");
+                SceneManager.LoadScene(2);
             }
         }
 
