@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
     
     public float speed;
     private Rigidbody rb;
-    public int score; //for the score script and the collection of diamonds- Sanaa
     
     void Start()
     {
@@ -25,7 +24,7 @@ public class Player : MonoBehaviour
         PlayerMove();
     }
 
-    
+
 
     private void PlayerMove()
     {
@@ -49,7 +48,7 @@ public class Player : MonoBehaviour
             {
                 movement += Vector3.back;
             }
-            if(Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.E))
             {
                 WaveSingleton.isInDanger = true;
                 WaveSingleton.beginWave();
@@ -62,15 +61,4 @@ public class Player : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter(Collider other) //in regards to touching the Diamonds and updating the score as well as destroying upon touch- Sanaa
-    {
-        
-        if (other.GetComponent<Score_Script>())
-        { 
-            score += other.GetComponent<Score_Script>().Diamonds;
-           
-            Destroy(other.gameObject);
-        }
-    }
-   
 }
