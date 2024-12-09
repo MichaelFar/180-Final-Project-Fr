@@ -9,7 +9,7 @@ public class Damageable : MonoBehaviour
 
     public int MaxHealth = 1;
 
-    private int health = 1;
+    public int health = 1;
 
     UnityEvent DamageTaken;
 
