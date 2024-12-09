@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     
     public float speed;
     private Rigidbody rb;
+    public int score; //for the score script and the collection of diamonds- Sanaa
     
     void Start()
     {
@@ -61,4 +62,15 @@ public class Player : MonoBehaviour
             }
         }
     }
+    private void OnTriggerEnter(Collider other) //in regards to touching the Diamonds and updating the score as well as destroying upon touch- Sanaa
+    {
+        
+        if (other.GetComponent<Score_Script>())
+        { 
+            score += other.GetComponent<Score_Script>().Diamonds;
+           
+            Destroy(other.gameObject);
+        }
+    }
+   
 }

@@ -11,7 +11,7 @@ public class Portal : MonoBehaviour
 {
     public GameObject spawnPoint;
 
-    
+
     private void OnTriggerEnter(Collider other)
     {
         //var isPlayer = other.GetComponent<Player>();
