@@ -33,7 +33,9 @@ public class UIManager : MonoBehaviour
     {
         //scoreText.text = "Score: " + Player.Score;
         waveText.text = "wave: " + WaveSingleton.currentWave;
-        livesText.text = "Lives: " + WaveSingleton.playerDamageable.health;
+        livesText.text = "Health: " + WaveSingleton.playerDamageable.health + " / " + WaveSingleton.playerDamageable.MaxHealth;
+
+        scoreText.text = "Score: " + WaveSingleton.playerScoreObject.score;
        // trapText.text = "Trap: " + WaveSingleton.playerDamageable.health;
     }
 }

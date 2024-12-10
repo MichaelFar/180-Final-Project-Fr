@@ -22,9 +22,13 @@ public static class WaveSingleton
 
     public static int enemyHealthModifier = 0;
 
+    public static int playerDamage = 1;
+
+    public static Collect_Script playerScoreObject;
+
     private static int _enemyCount = 10;
 
-
+    
     //public static int enemyCount = 0;
     public static int enemyCount
     {
@@ -63,5 +67,6 @@ public static class WaveSingleton
         enemyDamageModifier += 1;
         enemyHealthModifier += 1;
     }
+    
 
 }

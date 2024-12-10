@@ -14,11 +14,14 @@ public class BaseEnemy : MonoBehaviour
     private float nextFire = 0.0f;
 
     private float fireRate = 1.0f;
+
+    private float scoreOdds = 3.0f;
     
     public float speed = 10.0f;
 
     public GameObject projectile;
 
+    public GameObject scoreDrop;
     
 
     void Start()
@@ -66,11 +69,17 @@ public class BaseEnemy : MonoBehaviour
     private void OnDestroy()
     {
         BaseEnemy[] tests = FindObjectsOfType(typeof(BaseEnemy)) as BaseEnemy[];
-        if(tests.Length == 0 && WaveSingleton.doneSpawning)
+        
+        var roll = Random.Range(1.0f, 10.0f);
+        if (tests.Length == 0 && WaveSingleton.doneSpawning)
         {
             WaveSingleton.isInDanger = false;
             WaveSingleton.increaseDifficulty();
         }
-
+        if(roll < scoreOdds)
+        {
+            var scoreObject = Instantiate(scoreDrop);
+            scoreObject.transform.position = transform.position;
+        }
     }
 }

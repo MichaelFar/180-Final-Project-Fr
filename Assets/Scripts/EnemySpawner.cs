@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -47,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
         transform.rotation = rotationCopy;
         var direction = target.transform.position - SpawnLocation.transform.position;
         direction.Normalize();
-
+        
         var largerAspect = WaveSingleton.Camera.pixelWidth > WaveSingleton.Camera.pixelHeight ? WaveSingleton.Camera.pixelWidth : WaveSingleton.Camera.pixelHeight;
 
         var cameraExtentWorldpoint = WaveSingleton.Camera.ScreenToWorldPoint(new Vector3(largerAspect, 0, WaveSingleton.Camera.transform.position.y));

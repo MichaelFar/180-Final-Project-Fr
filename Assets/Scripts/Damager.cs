@@ -15,9 +15,14 @@ public class Damager : MonoBehaviour
     UnityEvent DealtDamage;
     void Start()
     {
-        if(gameObject.GetComponent<BaseEnemy>())
+        if(owner.GetComponent<BaseEnemy>())
         {
+            print("I am an enemy bullet");
             damage = WaveSingleton.enemyDamageModifier + damage;
+        }
+        else
+        {
+            damage = WaveSingleton.playerDamage;
         }
         
     }

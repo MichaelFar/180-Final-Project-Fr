@@ -183,6 +183,7 @@ MonoBehaviour:
   target: {fileID: 0}
   speed: 10
   projectile: {fileID: 6303969421768429117, guid: 1fba1b7920c39c5409ca209915b37c5a, type: 3}
+  scoreDrop: {fileID: 7565739084986305601, guid: 93d877c52a283744a94c6d0f5508b161, type: 3}
 --- !u!114 &5955482288795181430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 1
+  health: 1
   objectToDestroy: {fileID: 455511967899818332}
 --- !u!1001 &198469965443427431
 PrefabInstance:

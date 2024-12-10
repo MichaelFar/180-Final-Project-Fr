@@ -13,7 +13,7 @@ public class Collect_Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        WaveSingleton.playerScoreObject = this;
     }
 
     // Update is called once per frame

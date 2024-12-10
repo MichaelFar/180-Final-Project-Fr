@@ -50,4 +50,12 @@ public class Damageable : MonoBehaviour
         }
 
     }
+    public void Heal(int amountToHeal)
+    {
+        health = Mathf.Clamp(health + amountToHeal, 0, MaxHealth);
+    }
+    public void IncreaseMaxHealth(int amountToIncrease)
+    {
+        MaxHealth += amountToIncrease;
+    }
 }

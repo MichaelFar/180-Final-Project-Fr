@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
 {
     
     public float speed;
+    
+    
+
     private Rigidbody rb;
     
     void Start()
@@ -60,5 +63,35 @@ public class Player : MonoBehaviour
                 rb.MovePosition(transform.position + movement * speed * Time.deltaTime);
             }
         }
+    }
+    public void purchaseDamage()
+    {
+        if (WaveSingleton.playerScoreObject.score >= 600)
+        {
+            WaveSingleton.playerScoreObject.score -= 600;
+            WaveSingleton.playerDamage += 1;
+            
+        }
+        
+    }
+    public void purchaseHealth()
+    {
+        if (WaveSingleton.playerScoreObject.score >= 300)
+        {
+            WaveSingleton.playerScoreObject.score -= 300;
+            WaveSingleton.playerDamageable.Heal(2);
+
+        }
+        
+    }
+    public void purchaseMaxHealth()
+    {
+        if (WaveSingleton.playerScoreObject.score >= 500)
+        {
+            WaveSingleton.playerScoreObject.score -= 500;
+            WaveSingleton.playerDamageable.IncreaseMaxHealth(3);
+
+        }
+        
     }
 }
