@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// Author: Michael Farrar
+/// Date: 12/11/24
+/// Description: Unused, interpolates between 2 materials
 public class InterpolateMaterial : MonoBehaviour
 {
     // Start is called before the first frame update

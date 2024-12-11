@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+/// Author: Michael Farrar
+/// Date: 12/11/24
+/// Description: Handles the logic for the slime enemies
 public class BaseEnemy : MonoBehaviour
 {
     // Start is called before the first frame update
-
+    //Where the enemies travel to
     public GameObject target;
 
     private bool reachedPlayer = false;
@@ -18,9 +20,9 @@ public class BaseEnemy : MonoBehaviour
     private float scoreOdds = 3.0f;
     
     public float speed = 10.0f;
-
+    //Enemy projectile
     public GameObject projectile;
-
+    //Object they have a chance of dropping
     public GameObject scoreDrop;
     
 
@@ -32,6 +34,7 @@ public class BaseEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Moves the enemy to the target, if they reach the perimeter they begin to shoot
         if (!reachedPlayer)
         {
             var step = speed * Time.deltaTime; // calculate distance to move
@@ -51,6 +54,10 @@ public class BaseEnemy : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// Sets the value for reached player if they reach the EnemyPerimeter
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<EnemyPerimeter>())
@@ -58,6 +65,9 @@ public class BaseEnemy : MonoBehaviour
             reachedPlayer = true;
         }
     }
+    /// <summary>
+    /// Fires the projectile
+    /// </summary>
     private void FireProjectile()
     {
         var projectileInstance = Instantiate(projectile);
@@ -65,7 +75,9 @@ public class BaseEnemy : MonoBehaviour
         projectileInstance.GetComponent<Bullet>().owner = gameObject;
         projectileInstance.GetComponent<Bullet>().direction = new Vector3(target.transform.position.x, 1.0f, target.transform.position.z);
     }
-
+    /// <summary>
+    /// Checks for other enemies in the scene, if they don't exist and the spawner is done spawning increases the wave difficulty, also rolls for drop
+    /// </summary>
     private void OnDestroy()
     {
         BaseEnemy[] tests = FindObjectsOfType(typeof(BaseEnemy)) as BaseEnemy[];
@@ -76,7 +88,7 @@ public class BaseEnemy : MonoBehaviour
             WaveSingleton.isInDanger = false;
             WaveSingleton.increaseDifficulty();
         }
-        if(roll < scoreOdds)
+        if(roll <= scoreOdds)
         {
             var scoreObject = Instantiate(scoreDrop);
             scoreObject.transform.position = transform.position;

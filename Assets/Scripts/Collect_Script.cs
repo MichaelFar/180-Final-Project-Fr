@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /*
- * Shahzad, Sanaa
+ * Shahzad, Sanaa and Michael Farrar
  * 12/9/24
  * Collects score
  * */
@@ -13,6 +13,7 @@ public class Collect_Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Allows the player to communicate with score
         WaveSingleton.playerScoreObject = this;
     }
 
@@ -21,6 +22,10 @@ public class Collect_Script : MonoBehaviour
     {
         
     }
+    /// <summary>
+    /// Increments score and destroys self
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other) //in regards to touching the Diamonds and updating the score as well as destroying upon touch
     {
 

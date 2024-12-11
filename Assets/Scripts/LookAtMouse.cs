@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+/// Author: Michael Farrar
+/// Date: 12/11/24
+/// Description: Handles logic for rotating the player to look at the mouse, also handles shooting the player's projectile
 public class LookAtMouse : MonoBehaviour
 {
     // Start is called before the first frame update
-
+    //Thing we make rotate
     public GameObject objectToLook;
 
     public Vector3 mouseDirection;
-
+    // Player's projectile
     public GameObject projectile;
 
     public float fireRate = 0.3f;
@@ -22,6 +24,9 @@ public class LookAtMouse : MonoBehaviour
     }
 
     // Update is called once per frame
+    /// <summary>
+    /// Handles the act of looking at the mouse, also handles the player shooting logic
+    /// </summary>
     void Update()
     {
         mouseDirection = WaveSingleton.Camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 19.53f));
@@ -34,7 +39,9 @@ public class LookAtMouse : MonoBehaviour
         }
         
     }
-
+    /// <summary>
+    /// Spawns the projectile and initializes important values
+    /// </summary>
     private void FireProjectile()
     {
         var projectileInstance = Instantiate(projectile);

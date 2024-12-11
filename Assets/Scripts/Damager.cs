@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+/// Author: Michael Farrar
+/// Date: 12/11/24
+/// Description: This class causes damage to the 'Damageable' script
 public class Damager : MonoBehaviour
 {
     // Start is called before the first frame update
     public int damage = 1;
 
-    public GameObject owner;
+    public GameObject owner;//Used to determine the source of damage
 
     private IEnumerator coroutine;
 
     UnityEvent DealtDamage;
+    //Sets the proper damage of the bullets based on difficulty and player stats
     void Start()
     {
         if(owner.GetComponent<BaseEnemy>())
@@ -32,13 +35,18 @@ public class Damager : MonoBehaviour
     {
         
     }
-
+    //Starts a coroutine that runs in the next frame to calculate damage, we wait because owner must be set or self damage will occur
     
     private void OnTriggerEnter(Collider other)
     {
         coroutine = damageOnTrigger(other);
         StartCoroutine(coroutine);
     }
+    /// <summary>
+    /// Damages the damageable on trigger, checks for owner and prevents friendly fire if an enemy
+    /// </summary>
+    /// <param name="other"></param>
+    /// <returns></returns>
     IEnumerator damageOnTrigger(Collider other)
     {
         yield return new WaitForEndOfFrame();

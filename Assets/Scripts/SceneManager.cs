@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 //  Will handle scene transition.
 
-
+/// Author: Kat Heaps
+/// Date: 12/11/24
+/// Description: Handles transitions to new scenes from the UI
 public class GameOverScreen : MonoBehaviour
 {
     //This will quit the game in thew build.

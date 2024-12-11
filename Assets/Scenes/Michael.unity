@@ -443,6 +443,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1847713556411844705, guid: 2eca4729e5fc98c46a4b9d9e6623bef4, type: 3}
+      propertyPath: m_text
+      value: 'Start Wave - E
+
+        Move - WASD
+
+        Shoot - Left Click'
+      objectReference: {fileID: 0}
     - target: {fileID: 8257755726456421350, guid: 2eca4729e5fc98c46a4b9d9e6623bef4, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -118
