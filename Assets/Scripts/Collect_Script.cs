@@ -15,6 +15,7 @@ public class Collect_Script : MonoBehaviour
     {
         //Allows the player to communicate with score
         WaveSingleton.playerScoreObject = this;
+        score = WaveSingleton.persistentScore;
     }
 
     // Update is called once per frame
@@ -32,7 +33,7 @@ public class Collect_Script : MonoBehaviour
         if (other.GetComponent<Score_Script>())
         {
             score += other.GetComponent<Score_Script>().Diamonds;
-
+            WaveSingleton.persistentScore = score;
             Destroy(other.gameObject);
         }
     }

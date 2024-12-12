@@ -32,7 +32,12 @@ public static class WaveSingleton
     public static Collect_Script playerScoreObject;
 
     private static int _enemyCount = 10;
+
     public static int enemyAmountThisWave = 10;
+
+    public static int persistentScore = 0;
+
+    public static int currentLevelIndex = 0;
     /// <summary>
     /// Due to strangeness, this variable no longer handles increasing difficulty
     /// </summary>
@@ -70,13 +75,31 @@ public static class WaveSingleton
         enemyDamageModifier += 1;
         enemyHealthModifier += 1;
         //The 4th wave will send you to the next level
-        if(currentWave == 4)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        //if(currentWave == 4)
+        //{
+        //    if(SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1) != null)
+        //    {
+        //        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //    }
+            
+        //}
     }
     //Sets difficulty values back to their defaults, called by the player upon entering the scene
     public static void resetDifficulty()
+    {
+
+        currentWave = 1;
+        //enemyAmountThisWave = 10;
+        enemyDamageModifier = 0;
+        //.enemyHealthModifier = 0;
+        //playerDamage = 1;
+        playerDamageable.health = 5;
+        playerDamageable.MaxHealth = 5;
+        _enemyCount = 10;
+        //playerDamage = 1;
+        isInDanger = false;
+    }
+    public static void restartDifficulty()
     {
 
         currentWave = 1;
@@ -88,6 +111,7 @@ public static class WaveSingleton
         playerDamageable.MaxHealth = 5;
         _enemyCount = 10;
         playerDamage = 1;
+        persistentScore = 0;
         isInDanger = false;
     }
 

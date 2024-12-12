@@ -19,7 +19,16 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        WaveSingleton.resetDifficulty();
+        
+        if(WaveSingleton.currentLevelIndex == SceneManager.GetActiveScene().buildIndex)
+        {
+            print("Restarting with default difficulty");
+            WaveSingleton.restartDifficulty();
+        }
+        else
+        {
+            WaveSingleton.resetDifficulty();
+        }
     }
 
     
@@ -61,7 +70,17 @@ public class Player : MonoBehaviour
             if (Input.GetKey(KeyCode.E))
             {
                 WaveSingleton.isInDanger = true;
+                
                 WaveSingleton.beginWave();
+
+                if (WaveSingleton.currentWave > 5)
+                {
+                    if (SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1) != null)
+                    {
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    }
+
+                }
             }
 
             if (movement != Vector3.zero)

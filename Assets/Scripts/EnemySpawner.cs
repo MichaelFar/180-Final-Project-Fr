@@ -63,7 +63,7 @@ public class EnemySpawner : MonoBehaviour
         direction.x *= cameraExtentWorldpoint.magnitude / 1.0f;
         direction.z *= cameraExtentWorldpoint.magnitude / 1.0f;
 
-        SpawnLocation.transform.position = new Vector3(direction.x, SpawnLocation.transform.position.y, direction.z);
+        //SpawnLocation.transform.position = new Vector3(direction.x, SpawnLocation.transform.position.y, direction.z);
         SpawnEnemy();
     }
     /// <summary>

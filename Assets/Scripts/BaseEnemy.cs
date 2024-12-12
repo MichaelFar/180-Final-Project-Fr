@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 /// Author: Michael Farrar
 /// Date: 12/11/24
 /// Description: Handles the logic for the slime enemies
@@ -17,7 +18,7 @@ public class BaseEnemy : MonoBehaviour
 
     private float fireRate = 1.0f;
 
-    private float scoreOdds = 3.0f;
+    private float scoreOdds = 5.0f;
     
     public float speed = 10.0f;
     //Enemy projectile
@@ -87,6 +88,7 @@ public class BaseEnemy : MonoBehaviour
         {
             WaveSingleton.isInDanger = false;
             WaveSingleton.increaseDifficulty();
+            WaveSingleton.currentLevelIndex = SceneManager.GetActiveScene().buildIndex + 1;
         }
         if(roll <= scoreOdds)
         {
