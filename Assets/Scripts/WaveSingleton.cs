@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 /// <summary>
@@ -98,6 +99,7 @@ public static class WaveSingleton
         _enemyCount = 10;
         //playerDamage = 1;
         isInDanger = false;
+        MonoBehaviour.print("Resetting difficulty");
     }
     public static void restartDifficulty()
     {
@@ -113,6 +115,7 @@ public static class WaveSingleton
         playerDamage = 1;
         persistentScore = 0;
         isInDanger = false;
+        MonoBehaviour.print("Restarting difficulty");
     }
 
 }
