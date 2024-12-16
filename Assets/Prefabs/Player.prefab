@@ -131,6 +131,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  damageButtonValue: 600
+  healButtonValue: 300
+  maxHealthButtonValue: 500
+  gemModButtonValue: 450
 --- !u!114 &1623103769639089664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -698,22 +702,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5545666785188780057}
-    - target: {fileID: 6512851801053734874, guid: 89a053862a5d384459e65e2642a53b89, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 6512851801053734874, guid: 89a053862a5d384459e65e2642a53b89, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 6512851801053734874, guid: 89a053862a5d384459e65e2642a53b89, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 6512851801053734874, guid: 89a053862a5d384459e65e2642a53b89, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -59
-      objectReference: {fileID: 0}
+    - target: {fileID: 6950798045305569403, guid: 89a053862a5d384459e65e2642a53b89, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5545666785188780057}
     - target: {fileID: 7852298951461971953, guid: 89a053862a5d384459e65e2642a53b89, type: 3}
       propertyPath: m_Name
       value: Canvas

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 /// Author: Michael Farrar, Kat Heaps
@@ -9,17 +10,23 @@ public class Player : MonoBehaviour
 {
     
     public float speed;
-    
-    
 
+
+    public int damageButtonValue = 600;
+    public int healButtonValue = 300;
+    public int maxHealthButtonValue = 500;
+    public int gemModButtonValue = 450;
     private Rigidbody rb;
+
     /// <summary>
     /// When the player enters the scene, reset difficulty to wave 1
     /// </summary>
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
+
+        WaveSingleton.player = this;
+
         if(WaveSingleton.currentLevelIndex == SceneManager.GetActiveScene().buildIndex)
         {
             print("Restarting with default difficulty");
@@ -95,11 +102,11 @@ public class Player : MonoBehaviour
     /// </summary>
     public void purchaseDamage()
     {
-        if (WaveSingleton.playerScoreObject.score >= 600)
+        if (WaveSingleton.playerScoreObject.score >= damageButtonValue)
         {
-            WaveSingleton.playerScoreObject.score -= 600;
+            WaveSingleton.playerScoreObject.score -= damageButtonValue;
             WaveSingleton.playerDamage += 1;
-            
+            damageButtonValue += 350;
         }
         
     }
@@ -108,9 +115,9 @@ public class Player : MonoBehaviour
     /// </summary>
     public void purchaseHealth()
     {
-        if (WaveSingleton.playerScoreObject.score >= 300)
+        if (WaveSingleton.playerScoreObject.score >= healButtonValue)
         {
-            WaveSingleton.playerScoreObject.score -= 300;
+            WaveSingleton.playerScoreObject.score -= healButtonValue;
             WaveSingleton.playerDamageable.Heal(2);
 
         }
@@ -121,13 +128,22 @@ public class Player : MonoBehaviour
     /// </summary>
     public void purchaseMaxHealth()
     {
-        if (WaveSingleton.playerScoreObject.score >= 500)
+        if (WaveSingleton.playerScoreObject.score >= maxHealthButtonValue)
         {
-            WaveSingleton.playerScoreObject.score -= 500;
+            WaveSingleton.playerScoreObject.score -= maxHealthButtonValue;
             WaveSingleton.playerDamageable.IncreaseMaxHealth(3);
             WaveSingleton.playerDamageable.Heal(3);
-
+            maxHealthButtonValue += 450;
         }
         
+    }
+    public void upgradeGems()
+    {
+        if (WaveSingleton.playerScoreObject.score >= gemModButtonValue)
+        {
+            WaveSingleton.playerScoreObject.score -= gemModButtonValue;
+            WaveSingleton.gemValueMod += 150;
+            gemModButtonValue += 350;
+        }
     }
 }

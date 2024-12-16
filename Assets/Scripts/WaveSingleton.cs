@@ -39,6 +39,10 @@ public static class WaveSingleton
     public static int persistentScore = 0;
 
     public static int currentLevelIndex = 0;
+
+    public static int gemValueMod = 0;
+
+    public static Player player;
     /// <summary>
     /// Due to strangeness, this variable no longer handles increasing difficulty
     /// </summary>
@@ -73,7 +77,11 @@ public static class WaveSingleton
     {
         currentWave += 1;
         enemyAmountThisWave += 2;
-        enemyDamageModifier += 1;
+        if(currentWave % 2 == 0)
+        {
+            enemyDamageModifier += 1;
+        }
+        
         enemyHealthModifier += 1;
         //The 4th wave will send you to the next level
         //if(currentWave == 4)
@@ -96,7 +104,7 @@ public static class WaveSingleton
         //playerDamage = 1;
         playerDamageable.health = 5;
         playerDamageable.MaxHealth = 5;
-        _enemyCount = 10;
+        //_enemyCount = 10;
         //playerDamage = 1;
         isInDanger = false;
         MonoBehaviour.print("Resetting difficulty");
@@ -108,7 +116,6 @@ public static class WaveSingleton
         enemyAmountThisWave = 10;
         enemyDamageModifier = 0;
         enemyHealthModifier = 0;
-        playerDamage = 1;
         playerDamageable.health = 5;
         playerDamageable.MaxHealth = 5;
         _enemyCount = 10;

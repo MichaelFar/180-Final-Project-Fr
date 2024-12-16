@@ -88,7 +88,7 @@ public class BaseEnemy : MonoBehaviour
         {
             WaveSingleton.isInDanger = false;
             WaveSingleton.increaseDifficulty();
-            WaveSingleton.currentLevelIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            WaveSingleton.currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
         }
         if(roll <= scoreOdds)
         {

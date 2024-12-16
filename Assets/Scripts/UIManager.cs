@@ -19,7 +19,12 @@ public class UIManager : MonoBehaviour
 
     public TMP_Text livesText;
 
+    public TMP_Text damageText;
 
+    public TMP_Text damageButtonText;
+    public TMP_Text healButtonText;
+    public TMP_Text maxHealthButtonText;
+    public TMP_Text gemModButtonText;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +41,11 @@ public class UIManager : MonoBehaviour
         livesText.text = "Health: " + WaveSingleton.playerDamageable.health + " / " + WaveSingleton.playerDamageable.MaxHealth;
 
         scoreText.text = "Score: " + WaveSingleton.playerScoreObject.score;
-       // trapText.text = "Trap: " + WaveSingleton.playerDamageable.health;
+        damageText.text = "Damage: " + WaveSingleton.playerDamage;
+        damageButtonText.text = "Upgrade Damage for " + WaveSingleton.player.damageButtonValue;
+        healButtonText.text = "Heal for " + WaveSingleton.player.healButtonValue;
+        maxHealthButtonText.text = "Upgrade Max Health for " + WaveSingleton.player.maxHealthButtonValue;
+        gemModButtonText.text = "Upgrade Gem Value for " + WaveSingleton.player.gemModButtonValue;
+        // trapText.text = "Trap: " + WaveSingleton.playerDamageable.health;
     }
 }

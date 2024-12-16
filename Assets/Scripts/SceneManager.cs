@@ -20,5 +20,6 @@ public class GameOverScreen : MonoBehaviour
     public void SwitchScene(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
+        WaveSingleton.persistentScore = 0;
     }
 }

@@ -4959,7 +4959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 898b7bc55793f1e43951f55e100424f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Diamonds: 350
+  Diamonds: 150
   scoreText: {fileID: 0}
 --- !u!114 &8325323252003011652
 MonoBehaviour:

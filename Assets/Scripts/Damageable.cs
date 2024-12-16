@@ -54,7 +54,7 @@ public class Damageable : MonoBehaviour
             else if(gameObject.GetComponent<Player>())
             {
                 print("Player has died, put gameover code here");
-                SceneManager.LoadScene(SceneManager.sceneCount - 1);
+                SceneManager.LoadScene(4);
                 
             }
         }

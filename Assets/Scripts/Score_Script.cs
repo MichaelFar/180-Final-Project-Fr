@@ -15,7 +15,7 @@ public class Score_Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Diamonds += WaveSingleton.gemValueMod;
     }
 
     // Update is called once per frame
